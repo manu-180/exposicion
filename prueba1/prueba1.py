@@ -1,11 +1,9 @@
 import reflex as rx
-import firebase_admin
 import os
 from dotenv import load_dotenv
 from datetime import datetime, timedelta
 from supabase import create_client, Client
 from typing import Any
-import time
 
 class Total(rx.Base):
     id:int 
@@ -2726,3 +2724,5 @@ app = rx.App(
     )
 app.add_page(index)
 app.add_page(turnos)
+app.add_page(mis_horarios)
+app.add_page(gestion_horarios)

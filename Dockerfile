@@ -5,10 +5,7 @@ FROM python:3.11
 WORKDIR /app
 COPY . .
 
-ENV URL="https://gcjyhrlcftbkeaiqlzlm.supabase.co"
-
-ENV KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdjanlocmxjZnRia2VhaXFsemxtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU3MjQ3NzAsImV4cCI6MjAzMTMwMDc3MH0.MFsm9DJ9XnVnsTUK-N2SsCBf8wnhW03mGp5d2Z2Jf9Q"
-
+ENV api_url="https://api.baackend.com/"
 
 # Install app requirements and reflex in the container
 RUN pip install -r requirements.txt

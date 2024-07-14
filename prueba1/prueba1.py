@@ -1,59 +1,59 @@
 import reflex as rx
-# import os
-# from dotenv import load_dotenv
-# from datetime import datetime, timedelta
-# from supabase import create_client, Client
-# from typing import Any
+import os
+from dotenv import load_dotenv
+from datetime import datetime, timedelta
+from supabase import create_client, Client
+from typing import Any
 
-# class Total(rx.Base):
-#     id:int 
-#     semana:str
-#     dia:str
-#     fecha:str
-#     hora:str
-#     mails:list
-#     cap_max:int
+class Total(rx.Base):
+    id:int 
+    semana:str
+    dia:str
+    fecha:str
+    hora:str
+    mails:list
+    cap_max:int
 
-# class Usuarios(rx.Base):
-#     id:int
-#     usuario:str 
-#     clases_disponibles:int
-#     recuperar:int
+class Usuarios(rx.Base):
+    id:int
+    usuario:str 
+    clases_disponibles:int
+    recuperar:int
    
 
-# class EncontrarUsuario(rx.Base):
-#     id:int
-#     semana:str 
-#     dia:str
-#     fecha:str
-#     hora:str
+class EncontrarUsuario(rx.Base):
+    id:int
+    semana:str 
+    dia:str
+    fecha:str
+    hora:str
 
 
-# class Semanas(rx.Base):
-#     id:int 
-#     numero_semana:str
+class Semanas(rx.Base):
+    id:int 
+    numero_semana:str
 
-# class Dias(rx.Base):
-#     id:int
-#     id_semana:int
-#     dia_semana:str
+class Dias(rx.Base):
+    id:int
+    id_semana:int
+    dia_semana:str
 
-# class Horarios(rx.Base):
-#     id:int
-#     id_dia:int
-#     hora_inicio:str
-#     hora_fin:Any
+class Horarios(rx.Base):
+    id:int
+    id_dia:int
+    hora_inicio:str
+    hora_fin:Any
 
 
-# class Alumnos(rx.Base):
-#     id:int
-#     mails:list
-#     id_horario:Any
+class Alumnos(rx.Base):
+    id:int
+    mails:list
+    id_horario:Any
 
-# class Fechas(rx.Base):
-#     id :int
-#     fecha:str
-#     dia_id:int
+class Fechas(rx.Base):
+    id :int
+    fecha:str
+    dia_id:int
 
 # async def confirmar_usuario_en_semana() -> str:
 #     return supabase.confirmar_usuario_en_semana()
@@ -64,8 +64,8 @@ import reflex as rx
 # async def encontrar_usuario() -> list[EncontrarUsuario]:       
 #         return supabase.encontrar_usuario()   
     
-# async def data_total() -> list[Total]:       
-#         return supabase.data_total()   
+async def data_total() -> list[Total]:       
+        return supabase.data_total()   
 
 # async def data_semanas() -> list[Semanas]:       
 #         return supabase.data_semanas()
@@ -451,11 +451,11 @@ import reflex as rx
 
 
         
-# class ReservaCancela(rx.State):
+class ReservaCancela(rx.State):
     
-#     async def reset_database(self):
-#         reset = reset_databasee()
-#         return reset
+    async def reset_database(self):
+        reset = reset_databasee()
+        return reset
     
 #     async def actualizar_capacidad_maxima(id):
 #         actualizar = actualizar_capacidad_maximaa(id)
@@ -469,8 +469,8 @@ import reflex as rx
 #         agregar = agregar_usuarioo(id)
 #         return agregar
     
-# def reset_databasee():
-#     supabase.reset_data_base()
+def reset_databasee():
+    supabase.reset_data_base()
 
 # def actualizar_capacidad_maximaa(id):
 #     supabase.actualizar_capacidad_maxima(id)
@@ -527,282 +527,282 @@ import reflex as rx
         
             
 
-# class SupaBase():
+class SupaBase():
 
-#     load_dotenv()
+    load_dotenv()
 
-#     URL: str = os.environ.get("URL")
-#     KEY: str = os.environ.get("KEY")
+    URL: str = os.environ.get("URL")
+    KEY: str = os.environ.get("KEY")
 
-#     supabase: Client = create_client(URL, KEY)
+    supabase: Client = create_client(URL, KEY)
 
-#     def data_total(self) -> list[Total]:
+    def data_total(self) -> list[Total]:
         
-#         total_class = []
+        total_class = []
 
-#         total = self.supabase.table("total").select("*").execute()
+        total = self.supabase.table("total").select("*").execute()
         
-#         for i in total.data:
-#             total_class.append(Total(id=i["id"], semana=i["semana"], dia=i["dia"], fecha=i["fecha"], hora=i["hora"], mails=i["mails"], cap_max=i["cap_max"]))
-#         total_list_sorted = sorted(total_class, key=lambda alumno: alumno.id)
-#         return total_list_sorted
+        for i in total.data:
+            total_class.append(Total(id=i["id"], semana=i["semana"], dia=i["dia"], fecha=i["fecha"], hora=i["hora"], mails=i["mails"], cap_max=i["cap_max"]))
+        total_list_sorted = sorted(total_class, key=lambda alumno: alumno.id)
+        return total_list_sorted
     
         
-#     def data_usuarios(self) -> list[Usuarios]:
+    def data_usuarios(self) -> list[Usuarios]:
 
-#         usuarios_class = []
+        usuarios_class = []
 
-#         usuarios = self.supabase.table("usuarios").select("*").execute()
+        usuarios = self.supabase.table("usuarios").select("*").execute()
 
-#         for i in usuarios.data:
-#             usuarios_class.append(Usuarios(id=i["id"], usuario=i["usuario"], clases_disponibles=i["clases_disponibles"], recuperar=i["recuperar"]))
-#         return usuarios_class
+        for i in usuarios.data:
+            usuarios_class.append(Usuarios(id=i["id"], usuario=i["usuario"], clases_disponibles=i["clases_disponibles"], recuperar=i["recuperar"]))
+        return usuarios_class
 
 
 
-#     def data_semanas(self) -> list[Semanas]:
-#         semanas_class = []
+    def data_semanas(self) -> list[Semanas]:
+        semanas_class = []
 
-#         semanas = self.supabase.table("semanas").select("*").execute()
+        semanas = self.supabase.table("semanas").select("*").execute()
         
-#         for i in semanas.data:
-#             semanas_class.append(Semanas(id=i["id"], numero_semana=i["numero_semana"],))
-#         return semanas_class
+        for i in semanas.data:
+            semanas_class.append(Semanas(id=i["id"], numero_semana=i["numero_semana"],))
+        return semanas_class
     
-#     def data_dias(self) -> list[Semanas]:
-#         dias_class = []
+    def data_dias(self) -> list[Semanas]:
+        dias_class = []
 
-#         dias = self.supabase.table("dias").select("*").execute()
-#         for i in dias.data:
-#             dias_class.append(Dias(id=i["id"], id_semana=i["id_semana"], dia_semana=i["dia_semana"]))
-#         return dias_class
+        dias = self.supabase.table("dias").select("*").execute()
+        for i in dias.data:
+            dias_class.append(Dias(id=i["id"], id_semana=i["id_semana"], dia_semana=i["dia_semana"]))
+        return dias_class
     
-#     def data_horarios(self) -> list[Horarios]:
-#         horarios_class = []
+    def data_horarios(self) -> list[Horarios]:
+        horarios_class = []
 
-#         horarios = self.supabase.table("horarios").select("*").execute()
+        horarios = self.supabase.table("horarios").select("*").execute()
         
-#         for i in horarios.data:
-#             print
-#             horarios_class.append(Horarios(id=i["id"], id_dia=i["id_dia"], hora_inicio=i["hora_inicio"], hora_fin=i["hora_fin"] ))
-#         return horarios_class
+        for i in horarios.data:
+            print
+            horarios_class.append(Horarios(id=i["id"], id_dia=i["id_dia"], hora_inicio=i["hora_inicio"], hora_fin=i["hora_fin"] ))
+        return horarios_class
     
-#     def data_alumnos(self) -> list[Alumnos]:
-#         alumnos_class = []
-#         alumnos = self.supabase.table("alumnos").select("*").execute()
+    def data_alumnos(self) -> list[Alumnos]:
+        alumnos_class = []
+        alumnos = self.supabase.table("alumnos").select("*").execute()
         
-#         for i in alumnos.data:
-#             alumnos_class.append(Alumnos(id=i["id"], mails=i["mails"],id_horario=i["id_horario"]))               
-#         alumnos_list_sorted = sorted(alumnos_class, key=lambda alumno: alumno.id)
-#         return alumnos_list_sorted
+        for i in alumnos.data:
+            alumnos_class.append(Alumnos(id=i["id"], mails=i["mails"],id_horario=i["id_horario"]))               
+        alumnos_list_sorted = sorted(alumnos_class, key=lambda alumno: alumno.id)
+        return alumnos_list_sorted
         
 
-#     def data_fechas(self) -> list[Fechas]:
-#         fechas_class = []
+    def data_fechas(self) -> list[Fechas]:
+        fechas_class = []
 
-#         fechas = self.supabase.table("fechas").select("*").execute()
+        fechas = self.supabase.table("fechas").select("*").execute()
         
-#         for i in fechas.data:
-#             fechas_class.append(Fechas(id=i["id"], fecha=i["fecha"] ,dia_id= i["dia_id"]))
-#         return fechas_class
+        for i in fechas.data:
+            fechas_class.append(Fechas(id=i["id"], fecha=i["fecha"] ,dia_id= i["dia_id"]))
+        return fechas_class
 
 
-#     def obtener_fechas_proximas_semanas(self):
-#         today = datetime.now()
+    def obtener_fechas_proximas_semanas(self):
+        today = datetime.now()
         
-#         next_monday = today + timedelta(days=(7 - today.weekday() + 0) % 7)
-#         fechas = []
-#         for i in range(5):
-#             lunes = next_monday + timedelta(weeks=i)
+        next_monday = today + timedelta(days=(7 - today.weekday() + 0) % 7)
+        fechas = []
+        for i in range(5):
+            lunes = next_monday + timedelta(weeks=i)
             
-#             for j in range(5):  # Solo lunes a viernes
-#                 fecha = lunes + timedelta(days=j)
-#                 fechas.append(fecha.strftime("%d/%m"))
+            for j in range(5):  # Solo lunes a viernes
+                fecha = lunes + timedelta(days=j)
+                fechas.append(fecha.strftime("%d/%m"))
         
-#         return fechas
+        return fechas
 
             
-#     def cant_users(self, id):
-#         for data in self.data_total():
-#             if data.id == id :
-#                 return len(data.mails)
+    def cant_users(self, id):
+        for data in self.data_total():
+            if data.id == id :
+                return len(data.mails)
         
 
                         
 
-#     def check_cant_users(self, id):
-#         if self.cant_users(id) < 4:
-#             return True
-#         return False
+    def check_cant_users(self, id):
+        if self.cant_users(id) < 4:
+            return True
+        return False
         
-#     def encontrar_dia(self, id):
+    def encontrar_dia(self, id):
 
-#         for i in self.data_dias():
-#             if i.id == id :
-#                 return i.dia_semana
-#         else: print("ese dia no existe")
+        for i in self.data_dias():
+            if i.id == id :
+                return i.dia_semana
+        else: print("ese dia no existe")
 
-#     def encontrar_dia_con_horario(self, id):
+    def encontrar_dia_con_horario(self, id):
         
-#         for i in self.data_horarios():
-#             if id == i.id:
-#                 return self.encontrar_dia(i.id_dia)
+        for i in self.data_horarios():
+            if id == i.id:
+                return self.encontrar_dia(i.id_dia)
 
-#     def encontrar_horario(self,id):
+    def encontrar_horario(self,id):
 
-#         for i in self.data_horarios():
-#             if i.id == id:
-#                 return i.hora_inicio
+        for i in self.data_horarios():
+            if i.id == id:
+                return i.hora_inicio
             
-#     def encontrar_fecha(self, id):
+    def encontrar_fecha(self, id):
 
-#         for i in self.data_total():
-#             if id == i.id:
-#                 return i.fecha
+        for i in self.data_total():
+            if id == i.id:
+                return i.fecha
             
-#     def encontrar_fecha_con_horario(self, id):
+    def encontrar_fecha_con_horario(self, id):
 
-#         for i in self.data_horarios():
-#             if id == i.id:
-#                 return self.encontrar_fecha(i.id_dia)
+        for i in self.data_horarios():
+            if id == i.id:
+                return self.encontrar_fecha(i.id_dia)
             
-#     def encontrar_semana(self, id):
-#         for i in self.data_semanas():
-#             if i.id == id :
-#                 return i.numero_semana
+    def encontrar_semana(self, id):
+        for i in self.data_semanas():
+            if i.id == id :
+                return i.numero_semana
             
-#     def encontrar_semana_con_dia(self, id ):
-#         for i in self.data_dias():
-#             if id == i.id:
-#                 return i.id_semana
+    def encontrar_semana_con_dia(self, id ):
+        for i in self.data_dias():
+            if id == i.id:
+                return i.id_semana
             
-#     def encontrar_diaid_con_horario(self, id ):
-#         for i in self.data_horarios():
-#             if i.id == id:
-#                 return i.id_dia
+    def encontrar_diaid_con_horario(self, id ):
+        for i in self.data_horarios():
+            if i.id == id:
+                return i.id_dia
             
     
 
     
-#     def actualizar_fecha(self, id):
-#         for index, i in enumerate(self.obtener_fechas_proximas_semanas()):
-#             if index + 1 == id:
-#                 return i
+    def actualizar_fecha(self, id):
+        for index, i in enumerate(self.obtener_fechas_proximas_semanas()):
+            if index + 1 == id:
+                return i
         
 
-#     def encontrar_usuario(self):
+    def encontrar_usuario(self):
         
-#         data_total = self.data_total()
-#         horarios = []
+        data_total = self.data_total()
+        horarios = []
 
-#         for i in data_total:
-#             if "manunv@gmail.com" in i.mails:
-#                 idd = int(i.id)
-#                 semanaa = str(i.semana)
-#                 diaa = str(i.dia)
-#                 fechaa = str(i.fecha)
-#                 horaa = str(i.hora)
-#                 horarios.append(EncontrarUsuario(semana=semanaa,dia=diaa,fecha=fechaa,hora=horaa, id=idd))
-#         return horarios
+        for i in data_total:
+            if "manunv@gmail.com" in i.mails:
+                idd = int(i.id)
+                semanaa = str(i.semana)
+                diaa = str(i.dia)
+                fechaa = str(i.fecha)
+                horaa = str(i.hora)
+                horarios.append(EncontrarUsuario(semana=semanaa,dia=diaa,fecha=fechaa,hora=horaa, id=idd))
+        return horarios
     
-#     def cant_clases_usuario(self, user):
+    def cant_clases_usuario(self, user):
 
-#         for i in self.data_usuarios():
-#             if user == i.usuario:
-#                 return i.clases_disponibles
+        for i in self.data_usuarios():
+            if user == i.usuario:
+                return i.clases_disponibles
     
-#     def recuperar_clase(self, user):
-#         recupera = 0
-#         for i in self.data_usuarios():
-#             if user == i.usuario:
-#                 return i.recuperar
+    def recuperar_clase(self, user):
+        recupera = 0
+        for i in self.data_usuarios():
+            if user == i.usuario:
+                return i.recuperar
                         
     
-#     def id_usuario(self, user):
+    def id_usuario(self, user):
 
-#         for i in self.data_usuarios():
-#             if user == i.usuario:
-#                 return i.id
+        for i in self.data_usuarios():
+            if user == i.usuario:
+                return i.id
 
     
         
-#     def recuperar_con_usuario(self, usuario):
-#         for i in self.data_usuarios():
-#             if i.usuario == usuario:
-#                 return i.recuperar
+    def recuperar_con_usuario(self, usuario):
+        for i in self.data_usuarios():
+            if i.usuario == usuario:
+                return i.recuperar
     
-#     def confirmar_usuario_en_semana(self):
-#         for i in self.data_total():
-#             if "manunv@gmail.com" in i.mails:
-#                 return "Falsee"
-#             else: return "truee"
+    def confirmar_usuario_en_semana(self):
+        for i in self.data_total():
+            if "manunv@gmail.com" in i.mails:
+                return "Falsee"
+            else: return "truee"
         
-#     def puede_inscribirse(self, usuario, id):
+    def puede_inscribirse(self, usuario, id):
         
-#         clase_a_inscribir = None
+        clase_a_inscribir = None
         
-#         for data in self.data_total():
-#             if data.id == id:
-#                 clase_a_inscribir = data
-#                 break
-#         if clase_a_inscribir is None:
-#             return False
-#         for data in self.data_total():
-#             if data.semana == clase_a_inscribir.semana and usuario in data.mails and self.recuperar_con_usuario(usuario) == 0:
-#                 return False
+        for data in self.data_total():
+            if data.id == id:
+                clase_a_inscribir = data
+                break
+        if clase_a_inscribir is None:
+            return False
+        for data in self.data_total():
+            if data.semana == clase_a_inscribir.semana and usuario in data.mails and self.recuperar_con_usuario(usuario) == 0:
+                return False
         
-#         clase_a_inscribir.mails.append(usuario)
-#         response = (self.supabase.table("total").update({"mails": clase_a_inscribir.mails}).eq("id", id).execute())
-#         response = (self.supabase.table("usuarios").update({"clases_disponibles": self.cant_clases_usuario(usuario) - 1}).eq("id", self.id_usuario("manunv@gmail.com")).execute())
-#         for i in self.data_usuarios():
-#             if i.recuperar != 0:
-#                 response = (self.supabase.table("usuarios").update({"recuperar": self.recuperar_clase("manunv@gmail.com") - 1}).eq("id", self.id_usuario("manunv@gmail.com")).execute())
+        clase_a_inscribir.mails.append(usuario)
+        response = (self.supabase.table("total").update({"mails": clase_a_inscribir.mails}).eq("id", id).execute())
+        response = (self.supabase.table("usuarios").update({"clases_disponibles": self.cant_clases_usuario(usuario) - 1}).eq("id", self.id_usuario("manunv@gmail.com")).execute())
+        for i in self.data_usuarios():
+            if i.recuperar != 0:
+                response = (self.supabase.table("usuarios").update({"recuperar": self.recuperar_clase("manunv@gmail.com") - 1}).eq("id", self.id_usuario("manunv@gmail.com")).execute())
          
 
-#     def agregar_usuario_a_horario(self, id):
+    def agregar_usuario_a_horario(self, id):
         
-#         for data in self.data_total():
-#             if data.id == id:
-#                 if "manunv@gmail.com" not in data.mails:
-#                     if self.cant_clases_usuario("manunv@gmail.com") > 0:
-#                         self.puede_inscribirse("manunv@gmail.com", id)
+        for data in self.data_total():
+            if data.id == id:
+                if "manunv@gmail.com" not in data.mails:
+                    if self.cant_clases_usuario("manunv@gmail.com") > 0:
+                        self.puede_inscribirse("manunv@gmail.com", id)
                       
 
 
-#     def eliminar_usuario_a_horario(self, id):
+    def eliminar_usuario_a_horario(self, id):
         
-#         for data in self.data_total():
-#             if data.id == id:
-#                 if 'manunv@gmail.com' in data.mails:
-#                     alumnos = data.mails
-#                     alumnos.remove('manunv@gmail.com')
-#                     response = (self.supabase.table("total").update({"mails": alumnos}).eq("id", id).execute())
-#                     response = (self.supabase.table("usuarios").update({"clases_disponibles": self.cant_clases_usuario("manunv@gmail.com") + 1}).eq("id", self.id_usuario("manunv@gmail.com")).execute())
-#                     response = (self.supabase.table("usuarios").update({"recuperar": self.recuperar_clase("manunv@gmail.com") + 1}).eq("id", self.id_usuario("manunv@gmail.com")).execute())
+        for data in self.data_total():
+            if data.id == id:
+                if 'manunv@gmail.com' in data.mails:
+                    alumnos = data.mails
+                    alumnos.remove('manunv@gmail.com')
+                    response = (self.supabase.table("total").update({"mails": alumnos}).eq("id", id).execute())
+                    response = (self.supabase.table("usuarios").update({"clases_disponibles": self.cant_clases_usuario("manunv@gmail.com") + 1}).eq("id", self.id_usuario("manunv@gmail.com")).execute())
+                    response = (self.supabase.table("usuarios").update({"recuperar": self.recuperar_clase("manunv@gmail.com") + 1}).eq("id", self.id_usuario("manunv@gmail.com")).execute())
 
     
-#     def sacar_id_con_usuario(self):
-#         result=[]
-#         for i in self.data_total():
-#             if i.cap_max > 4:
-#                 result.append(i.id)
+    def sacar_id_con_usuario(self):
+        result=[]
+        for i in self.data_total():
+            if i.cap_max > 4:
+                result.append(i.id)
                 
     
-#     async def agregar_fechas_constantemente(self):
-#         for i in await data_total():
-#             response = (self.supabase.table("total").update({"fecha": self.actualizar_fecha(self.encontrar_diaid_con_horario(i.id)) }).eq("id", i.id).execute())
+    async def agregar_fechas_constantemente(self):
+        for i in await data_total():
+            response = (self.supabase.table("total").update({"fecha": self.actualizar_fecha(self.encontrar_diaid_con_horario(i.id)) }).eq("id", i.id).execute())
             
-#     def reset_data_base(self):
-#         for i in self.data_total():
-#             response = (self.supabase.table("total").update({"mails": ["Ivanna Risaro ","Julian Navarro","Camila Rey"]}).eq("id", i.id).execute())
-#         for i in self.data_usuarios():
-#             response = (self.supabase.table("usuarios").update({"clases_disponibles":4 }).eq("id", i.id).execute())
-#             response = (self.supabase.table("usuarios").update({"recuperar":0 }).eq("id", i.id).execute())
+    def reset_data_base(self):
+        for i in self.data_total():
+            response = (self.supabase.table("total").update({"mails": ["Ivanna Risaro ","Julian Navarro","Camila Rey"]}).eq("id", i.id).execute())
+        for i in self.data_usuarios():
+            response = (self.supabase.table("usuarios").update({"clases_disponibles":4 }).eq("id", i.id).execute())
+            response = (self.supabase.table("usuarios").update({"recuperar":0 }).eq("id", i.id).execute())
 
             
         
         
-# supabase = SupaBase()
+supabase = SupaBase()
 
 
 @rx.page(
@@ -838,9 +838,8 @@ import reflex as rx
 )
 def index() -> rx.Component:
     return rx.box(
-        rx.text("hola")
-        # navbar(boton=True),
-        # button_reset_database(),
+        navbar(boton=True),
+        button_reset_database(),
         # colores(),
     )
 
@@ -1572,96 +1571,96 @@ def index() -> rx.Component:
 #     },
 # )
 
-# style_ceramica_azul = dict(
-#     bg="linear-gradient(145deg, #a7c7d9, #89a5b7)",
-#     border="2px solid #6b8399",
-#     border_radius="5px",
-#     box_shadow="1px 1px 2px #5a6f80, -1px -1px 2px #ffffff",
-#     color="#2c4b6b",
-#     font_weight="bold",
-#     padding="5px",
-#     _hover={
-#         "bg": "linear-gradient(145deg, #89a5b7, #a7c7d9)",
-#         "box_shadow": "inset 5px 5px 10px #5a6f80, inset -5px -5px 10px #ffffff",
-#     },
-# )
-# style_box_marron = dict(
-#     bg="linear-gradient(145deg, #f0e4d7, #e6d0b8)",
-#     border="2px solid #d4b594",
-#     border_radius="5px",
-#     # box_shadow="5px 5px 10px #c1a684, -2px -2px 3px #ffffff",
-#     color="#6b4c2c",
-#     font_weight="bold",
-#     padding="5px",
-#     position= "sticky",  
-#     top= '0',           
-#     _hover={
-#         "bg": "linear-gradient(145deg, #e6d0b8, #f0e4d7)",
-#         "box_shadow": "inset 1px 1px 3px #c1a684, inset -5px -5px 10px #ffffff",
-#     }
-# )
+style_ceramica_azul = dict(
+    bg="linear-gradient(145deg, #a7c7d9, #89a5b7)",
+    border="2px solid #6b8399",
+    border_radius="5px",
+    box_shadow="1px 1px 2px #5a6f80, -1px -1px 2px #ffffff",
+    color="#2c4b6b",
+    font_weight="bold",
+    padding="5px",
+    _hover={
+        "bg": "linear-gradient(145deg, #89a5b7, #a7c7d9)",
+        "box_shadow": "inset 5px 5px 10px #5a6f80, inset -5px -5px 10px #ffffff",
+    },
+)
+style_box_marron = dict(
+    bg="linear-gradient(145deg, #f0e4d7, #e6d0b8)",
+    border="2px solid #d4b594",
+    border_radius="5px",
+    # box_shadow="5px 5px 10px #c1a684, -2px -2px 3px #ffffff",
+    color="#6b4c2c",
+    font_weight="bold",
+    padding="5px",
+    position= "sticky",  
+    top= '0',           
+    _hover={
+        "bg": "linear-gradient(145deg, #e6d0b8, #f0e4d7)",
+        "box_shadow": "inset 1px 1px 3px #c1a684, inset -5px -5px 10px #ffffff",
+    }
+)
 
-# style_perla= dict(
-#     bg="linear-gradient(145deg, #d3d3d3, #b0b0b0)",
-#     border="2px solid #a9a9a9",
-#     border_radius="5px",
-#     box_shadow="1px 1px 2px #a9a9a9, -1px -1px 2px #dcdcdc",
-#     color="#333333",
-#     font_weight="bold",
-#     padding="5px",
-#     transition="all 0.3s ease",
-#     _hover={
-#         "bg": "linear-gradient(145deg, #b0b0b0, #d3d3d3)",
-#         "box_shadow": "inset 2px 2px 5px #a9a9a9, inset -2px -2px 5px #dcdcdc",
-#     }
-#     )
+style_perla= dict(
+    bg="linear-gradient(145deg, #d3d3d3, #b0b0b0)",
+    border="2px solid #a9a9a9",
+    border_radius="5px",
+    box_shadow="1px 1px 2px #a9a9a9, -1px -1px 2px #dcdcdc",
+    color="#333333",
+    font_weight="bold",
+    padding="5px",
+    transition="all 0.3s ease",
+    _hover={
+        "bg": "linear-gradient(145deg, #b0b0b0, #d3d3d3)",
+        "box_shadow": "inset 2px 2px 5px #a9a9a9, inset -2px -2px 5px #dcdcdc",
+    }
+    )
 
-# style_negro_mate= dict(
-#     bg="linear-gradient(145deg, #2e2e2e, #1a1a1a)",
-#     border="2px solid #1a1a1a",
-#     border_radius="5px",
-#     box_shadow="1px 1px 2px #151515, -1px -1px 2px #333333",
-#     color="#a9a9a9",
-#     font_weight="bold",
-#     padding="5px",
-#     transition="all 0.3s ease",
-#     width= "11em",
-#     _hover={
-#         "bg": "linear-gradient(145deg, #1a1a1a, #2e2e2e)",
-#         "box_shadow": "inset 2px 2px 5px #151515, inset -2px -2px 5px #333333",
-#     }
-# )
+style_negro_mate= dict(
+    bg="linear-gradient(145deg, #2e2e2e, #1a1a1a)",
+    border="2px solid #1a1a1a",
+    border_radius="5px",
+    box_shadow="1px 1px 2px #151515, -1px -1px 2px #333333",
+    color="#a9a9a9",
+    font_weight="bold",
+    padding="5px",
+    transition="all 0.3s ease",
+    width= "11em",
+    _hover={
+        "bg": "linear-gradient(145deg, #1a1a1a, #2e2e2e)",
+        "box_shadow": "inset 2px 2px 5px #151515, inset -2px -2px 5px #333333",
+    }
+)
 
-# style_gris_pizzarra= dict(
-#     bg="linear-gradient(145deg, #708090, #4e5964)",
-#     border="2px solid #2f4f4f",
-#     border_radius="5px",
-#     box_shadow="1px 1px 2px #2f4f4f, -1px -1px 2px #778899",
-#     color="#ffffff",
-#     font_weight="bold",
-#     padding="5px",
-#     transition="all 0.3s ease",
-#     _hover={
-#         "bg": "linear-gradient(145deg, #4e5964, #708090)",
-#         "box_shadow": "inset 1px 1px 2px #2f4f4f, inset -1px -1px 2px #778899",
-#     }
-#     )
+style_gris_pizzarra= dict(
+    bg="linear-gradient(145deg, #708090, #4e5964)",
+    border="2px solid #2f4f4f",
+    border_radius="5px",
+    box_shadow="1px 1px 2px #2f4f4f, -1px -1px 2px #778899",
+    color="#ffffff",
+    font_weight="bold",
+    padding="5px",
+    transition="all 0.3s ease",
+    _hover={
+        "bg": "linear-gradient(145deg, #4e5964, #708090)",
+        "box_shadow": "inset 1px 1px 2px #2f4f4f, inset -1px -1px 2px #778899",
+    }
+    )
 
-# style_ceramica_roja= dict(
-#     bg="linear-gradient(145deg, #e08080, #c06060)",
-#     border="2px solid #a04040",
-#     border_radius="7px",
-#     box_shadow="1px 1px 1px #903030, -1px -1px 1px #ffa0a0",
-#     color="#ffffff",
-#     font_weight="bold",
-#     padding="3px",
-#     transition="all 0.5s ease",
-#     width="7em",
-#     _hover={
-#         "bg": "linear-gradient(145deg, #A47070, #e08080)",
-#         "box_shadow": "inset 1px 1px 1px #b05050, inset 0px 0px 1px #ffc0c0",
-#     }
-#     )
+style_ceramica_roja= dict(
+    bg="linear-gradient(145deg, #e08080, #c06060)",
+    border="2px solid #a04040",
+    border_radius="7px",
+    box_shadow="1px 1px 1px #903030, -1px -1px 1px #ffa0a0",
+    color="#ffffff",
+    font_weight="bold",
+    padding="3px",
+    transition="all 0.5s ease",
+    width="7em",
+    _hover={
+        "bg": "linear-gradient(145deg, #A47070, #e08080)",
+        "box_shadow": "inset 1px 1px 1px #b05050, inset 0px 0px 1px #ffc0c0",
+    }
+    )
 
 # def button_rubi():
 #     return rx.button(
@@ -2164,95 +2163,95 @@ def index() -> rx.Component:
 #                 )
     
 
-# def button_disabled(item) -> rx.Component:
-#     return rx.center(
-#         rx.button(
-#             rx.text(f"{item.dia} {item.fecha} a las {item.hora}"),
-#             disabled=True,
-#             bg="linear-gradient(145deg, #f5f5f5, #e0e0e0)",
-#             color="#333333",
-#             # border="1px solid #bdbdbd",
-#             border_radius="6px",
-#             padding="5px",
-#             width= "14.5em",
-#         )
-#     ) 
+def button_disabled(item) -> rx.Component:
+    return rx.center(
+        rx.button(
+            rx.text(f"{item.dia} {item.fecha} a las {item.hora}"),
+            disabled=True,
+            bg="linear-gradient(145deg, #f5f5f5, #e0e0e0)",
+            color="#333333",
+            # border="1px solid #bdbdbd",
+            border_radius="6px",
+            padding="5px",
+            width= "14.5em",
+        )
+    ) 
 
     
 
-# def navbar(boton = False) -> rx.Component:
-#     return rx.box(
-#             rx.hstack(
-#                 rx.link(
-#                     rx.text("Taller de ceramica",
-#                         padding_left="1em"
-#                     ),
-#                     href="/",
-#                     color =  "#FCFDFD",
-#                 ),
-#                 desplegable_button(),
-#                 rx.spacer(),
-#             # rx.box(
-#             #         rx.cond(
-#             #         boton,
-#             #         rx.hstack(
-#             #         crear_usuario_button(),
-#             #         iniciar_sesion_button(),
-#             #         width = "100%",
-#             #         align_items="end")
-#             #     ),
-#             #     )
-#             ),
-#             width = "100%",
-#         style=dict(
-#             font_family="Confortaa-Medium",
-#             font_size = "1.3em",
-#             position="sticky",
-#             padding_y="0.5em",
-#             padding_x="0.5em",
-#             z_index="999",
-#             top="0",
-#             bg="#808080",
-#             box_shadow="1px 1px 2px #696969, -1px -1px 2px #b8b8b8",
-#             color="#050505",
-#             font_weight="bold",
-#             ),
-#     )
+def navbar(boton = False) -> rx.Component:
+    return rx.box(
+            rx.hstack(
+                rx.link(
+                    rx.text("Taller de ceramica",
+                        padding_left="1em"
+                    ),
+                    href="/",
+                    color =  "#FCFDFD",
+                ),
+                desplegable_button(),
+                rx.spacer(),
+            # rx.box(
+            #         rx.cond(
+            #         boton,
+            #         rx.hstack(
+            #         crear_usuario_button(),
+            #         iniciar_sesion_button(),
+            #         width = "100%",
+            #         align_items="end")
+            #     ),
+            #     )
+            ),
+            width = "100%",
+        style=dict(
+            font_family="Confortaa-Medium",
+            font_size = "1.3em",
+            position="sticky",
+            padding_y="0.5em",
+            padding_x="0.5em",
+            z_index="999",
+            top="0",
+            bg="#808080",
+            box_shadow="1px 1px 2px #696969, -1px -1px 2px #b8b8b8",
+            color="#050505",
+            font_weight="bold",
+            ),
+    )
 
-# def desplegable_button():
-#     return rx.menu.root(
-#         rx.menu.trigger(
-#             rx.button(
-#                 rx.icon("chevron-down", color="white"),
-#                 variant="ghost",
-#                 size="2",
-#                 width="6em",
-#                 style={
-#                     "background_color": "#808080"
-#                 }
-#             ),
-#         ),
-#         rx.menu.content(
-#             button_menu("turnos", "/turnos"),
-#             button_menu("mis horarios", "/mis_horarios"),
-#             button_menu("gestion horarios", "/gestion_horarios"),
-#         ),
-#         style={"margin_top": "5.5em",
-#                "background_color": "#FFFDF4"}  
-#     )
+def desplegable_button():
+    return rx.menu.root(
+        rx.menu.trigger(
+            rx.button(
+                rx.icon("chevron-down", color="white"),
+                variant="ghost",
+                size="2",
+                width="6em",
+                style={
+                    "background_color": "#808080"
+                }
+            ),
+        ),
+        rx.menu.content(
+            button_menu("turnos", "/turnos"),
+            button_menu("mis horarios", "/mis_horarios"),
+            button_menu("gestion horarios", "/gestion_horarios"),
+        ),
+        style={"margin_top": "5.5em",
+               "background_color": "#FFFDF4"}  
+    )
     
-# def button_menu(text, rute):
-#     return rx.link(
-#         rx.button(
-#             rx.text(text),
-#             width="13em",
-#             style={
-#                 "background_color": "#808080"
-#             }
-#         ),
-#         href=rute,
-#         style={"margin_bottom": "0.5em"}
-#     )
+def button_menu(text, rute):
+    return rx.link(
+        rx.button(
+            rx.text(text),
+            width="13em",
+            style={
+                "background_color": "#808080"
+            }
+        ),
+        href=rute,
+        style={"margin_bottom": "0.5em"}
+    )
 
 # def day_button_lunes1():
 #     fechas = supabase.obtener_fechas_proximas_semanas()
@@ -2682,14 +2681,14 @@ def index() -> rx.Component:
 #     )
 
 
-# def button_reset_database():
-#     return rx.button(
-#         "Reset database",
-#         width ="15em",
-#         on_click=ReservaCancela.reset_database(),
-#         style=style_perla,
-#         margin_y="3em"
-#     )
+def button_reset_database():
+    return rx.button(
+        "Reset database",
+        width ="15em",
+        on_click=ReservaCancela.reset_database(),
+        style=style_perla,
+        margin_y="3em"
+    )
 
     
 # BASE_STYLE = {

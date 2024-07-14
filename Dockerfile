@@ -5,8 +5,6 @@ FROM python:3.11
 WORKDIR /app
 COPY . .
 
-ENV api_url="https://api.baackend.com/"
-
 # Install app requirements and reflex in the container
 RUN pip install -r requirements.txt
 
